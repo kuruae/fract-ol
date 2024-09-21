@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:40:13 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/19 22:37:22 by enzo             ###   ########.fr       */
+/*   Updated: 2024/09/21 15:51:20 by enzo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "../include/fractol_bonus.h"
 
 void	init_fractal(t_fractal *fractal)
 {
@@ -21,6 +21,7 @@ void	init_fractal(t_fractal *fractal)
 	fractal->zoom = 300;
 	fractal->color = 0xFCBE11;
 	fractal->max_iterations = 80;
+	fractal->animate = false;
 }
 
 void	init_mlx(t_fractal *fractal)
