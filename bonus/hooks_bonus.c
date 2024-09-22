@@ -6,29 +6,22 @@
 /*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:39:06 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/21 18:05:59 by enzo             ###   ########.fr       */
+/*   Updated: 2024/09/22 01:39:39 by enzo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol_bonus.h"
+#include "fractol_bonus.h"
 
-int	loop_hook(t_fractal *fractal)
+void	key_press_speed(int key, t_fractal *fractal)
 {
-	if (fractal->animate)
-	{
-		if (fractal->key_pressed && fractal->cy < (fractal->tmp + 20))
-		{
-			if (fractal->cx > (fractal->tmp - 1))
-			{
-				fractal->cx += 0.005;
-				fractal->cy += 0.005;
-			}
-			fractal->cx += 0.05;
-			fractal->cy += 0.05;
-			start_fractal(fractal, fractal->name);
-		}
-	}
-	return (0);
+	if (key == I)
+		fractal->anim_speed += 0.01;
+	else if (key == K)
+		fractal->anim_speed -= 0.01;
+	else if (key == J)
+		fractal->anim_speed -= 0.01;
+	else if (key == L)
+		fractal->anim_speed += 0.01;
 }
 
 int	key_press(int key, t_fractal *fractal)
@@ -48,7 +41,10 @@ int	key_press(int key, t_fractal *fractal)
 	else if (key == LEFT)
 		fractal->offset_x -= 65 / fractal->zoom;
 	else if (key == C)
-		change_color(fractal);
+		fractal->color_shift += 0.05;
+	key_press_speed(key, fractal);
+	if (fractal->color_shift >= 1.0)
+		fractal->color_shift -= 1.0;
 	if (key != Q)
 		start_fractal(fractal, fractal->name);
 	return (0);

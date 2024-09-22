@@ -6,11 +6,11 @@
 /*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:25:07 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/21 15:30:22 by enzo             ###   ########.fr       */
+/*   Updated: 2024/09/21 23:13:07 by enzo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol_bonus.h"
+#include "fractol_bonus.h"
 
 void	mandel(t_fractal *fractal)
 {
@@ -35,8 +35,7 @@ void	mandel(t_fractal *fractal)
 	if (i == fractal->max_iterations)
 		show_pixel(fractal, fractal->x, fractal->y, 0x000000);
 	else
-		show_pixel(fractal, fractal->x, fractal->y, fractal->color * (i
-				% 255));
+		show_pixel(fractal, fractal->x, fractal->y, get_color(fractal, i));
 }
 
 void	julia(t_fractal *fractal)
@@ -60,8 +59,7 @@ void	julia(t_fractal *fractal)
 	if (i == fractal->max_iterations)
 		show_pixel(fractal, fractal->x, fractal->y, 0x000000);
 	else
-		show_pixel(fractal, fractal->x, fractal->y, (fractal->color * (i
-					% 255)));
+		show_pixel(fractal, fractal->x, fractal->y, get_color(fractal, i));
 }
 
 static void	phoenix_calc(t_fractal *fractal, double *old_x, double *old_y)
@@ -98,5 +96,5 @@ void	phoenix(t_fractal *fractal)
 	if (i == fractal->max_iterations)
 		show_pixel(fractal, fractal->x, fractal->y, 0x000000);
 	else
-		show_pixel(fractal, fractal->x, fractal->y, fractal->color * (i % 255));
+		show_pixel(fractal, fractal->x, fractal->y, get_color(fractal, i));
 }

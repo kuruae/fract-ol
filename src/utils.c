@@ -6,11 +6,11 @@
 /*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 22:51:22 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/19 23:13:43 by enzo             ###   ########.fr       */
+/*   Updated: 2024/09/21 23:20:06 by enzo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "fractol.h"
 
 bool	is_float_or_int(char *str)
 {

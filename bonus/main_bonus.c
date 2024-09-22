@@ -6,18 +6,18 @@
 /*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 15:57:38 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/21 17:51:04 by enzo             ###   ########.fr       */
+/*   Updated: 2024/09/22 01:38:59 by enzo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol_bonus.h"
+#include "fractol_bonus.h"
 
 void	write_error_and_exit(void)
 {
 	ft_putendl_fd("-----------------------------------------", 1);
 	ft_putendl_fd("\x1B[31mError:\x1B[37m", 1);
 	ft_putendl_fd("Select a fractal: ./fractol <fractal>", 1);
-	ft_putendl_fd("fractals: julia, mandel, phoenix", 1);
+	ft_putendl_fd("fractals: julia, mandel, phoenix, animate_julia", 1);
 	ft_putendl_fd("julia and phoenix need two floats as parameters.", 1);
 	ft_putendl_fd("example: ./fractol julia 0.355 0.355", 1);
 	ft_putendl_fd("\t ./fractol_bonus phoenix 0.56667 -0.5", 1);
@@ -42,9 +42,10 @@ void	fractal_name(t_fractal *fractal, char **argv)
 	{
 		fractal->name = "julia";
 		fractal->animate = true;
-		fractal->tmp = ft_atof(argv[2]);
-		fractal->cx = (ft_atof(argv[2]) - 3);
-		fractal->cy = (ft_atof(argv[3]) - 3);
+		fractal->x_tmp = ft_atof(argv[2]);
+		fractal->y_tmp = ft_atof(argv[2]);
+		fractal->cx = (ft_atof(argv[2]) - 0);
+		fractal->cy = (ft_atof(argv[3]) - 0);
 	}
 	else
 		fractal->name = "mandel";

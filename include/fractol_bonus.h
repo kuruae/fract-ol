@@ -6,7 +6,7 @@
 /*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:44:37 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/21 18:05:51 by enzo             ###   ########.fr       */
+/*   Updated: 2024/09/22 01:18:01 by enzo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@
 # define SIZE_1 700
 # define SIZE_2 700
 
+# ifndef M_PI
+#  define M_PI 3.14159265358979323846
+# endif
+
 # include <math.h>
-# include "../../../circle1/libft/includes/libft.h"
-# include "../mlx/mlx.h"
+# include "libft.h"
+# include "mlx.h"
 
 # ifdef __APPLE__
 #  define SCROLL_UP 4
@@ -67,11 +71,15 @@ typedef struct s_fractal
 	double	zy;
 	double	cx;
 	double	cy;
-	double	tmp;
+	double	x_tmp;
+	double	y_tmp;
 	double	offset_x;
 	double	offset_y;
 	double	zoom;
-	double	phoenix;
+	double	anim_speed;
+	double	anim_angle;
+	double	color_shift;
+	double	anim_radius;
 	char	*name;
 }			t_fractal;
 
@@ -96,6 +104,10 @@ int		loop_hook(t_fractal *fractal);
 void	animate_julia(t_fractal *fractal);
 int		key_press(int keycode, t_fractal *fractol);
 int		key_release(int keycode, t_fractal *fractol);
+int		get_color(t_fractal *fractal, int iterations);
+void	update_animation(t_fractal *fractal);
+void	init_animation(t_fractal *fractal);
+void	key_press_speed(int key, t_fractal *fractal);
 
 #endif
 

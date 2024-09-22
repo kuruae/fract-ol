@@ -6,7 +6,7 @@
 /*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:44:37 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/19 19:55:07 by enzo             ###   ########.fr       */
+/*   Updated: 2024/09/22 01:53:51 by enzo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # define SIZE_1 700
 # define SIZE_2 700
 
-# include "../../../circle1/libft/includes/libft.h"
+# include "libft.h"
+# include "mlx.h"
 # include <math.h>
-# include "../mlx/mlx.h"
 
 # ifdef __APPLE__
 #  define SCROLL_UP 4
@@ -85,9 +85,5 @@ void	show_pixel(t_fractal *fractal, int x, int y, int color);
 #endif
 
 /*
-c = complex (imaginary numbers)
-z = integers set (real numbers)
-x = real axis
-y = imaginary axis
 endianness is the order by which bytes are stored in memory
 */

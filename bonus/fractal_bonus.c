@@ -6,11 +6,11 @@
 /*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:11:21 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/20 22:34:23 by enzo             ###   ########.fr       */
+/*   Updated: 2024/09/21 23:12:44 by enzo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol_bonus.h"
+#include "fractol_bonus.h"
 
 void	start_fractal(t_fractal *fractal_void, char *name)
 {

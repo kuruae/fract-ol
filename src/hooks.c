@@ -6,11 +6,11 @@
 /*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:39:06 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/20 00:36:52 by enzo             ###   ########.fr       */
+/*   Updated: 2024/09/21 23:19:45 by enzo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "fractol.h"
 
 int	key_hook(int key, t_fractal *fractal)
 {

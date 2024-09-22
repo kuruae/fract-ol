@@ -17,6 +17,10 @@ SRC_DIR = src
 BONUS_DIR = bonus
 OBJ_DIR = objs
 INCLUDE_DIR = include
+# Add all include directories here
+INCLUDE_DIRS = -I$(INCLUDE_DIR) -I$(LIBFT_PATH)/includes -I$(MLX_PATH)
+
+######### FILES ########
 
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
@@ -61,12 +65,12 @@ $(BONUS_NAME): $(BONUS_OBJ_FILES) $(LIBFT) $(MLX)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -I$(LIBFT_PATH) -I$(MLX_PATH) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(INCLUDE_DIRS) -c -o $@ $<
 	@echo "$(NAME): $(GREEN)$@ was created$(RESET)"
 
 $(OBJ_DIR)/%.o: $(BONUS_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -I$(LIBFT_PATH) -I$(MLX_PATH) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(INCLUDE_DIRS) -c -o $@ $<
 	@echo "$(BONUS_NAME): $(GREEN)$@ was created$(RESET)"
 
 $(LIBFT):

@@ -6,11 +6,11 @@
 /*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 00:09:35 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/21 15:30:01 by enzo             ###   ########.fr       */
+/*   Updated: 2024/09/21 23:13:02 by enzo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol_bonus.h"
+#include "fractol_bonus.h"
 
 bool	parsing(int argc, char **argv)
 {

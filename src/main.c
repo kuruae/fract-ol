@@ -6,11 +6,11 @@
 /*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 15:57:38 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/21 16:48:34 by enzo             ###   ########.fr       */
+/*   Updated: 2024/09/21 23:19:54 by enzo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "fractol.h"
 
 void	write_error_and_exit(void)
 {
