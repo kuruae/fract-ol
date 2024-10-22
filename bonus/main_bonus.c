@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emagnani <emagnani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 15:57:38 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/22 01:38:59 by enzo             ###   ########.fr       */
+/*   Updated: 2024/10/21 15:44:41 by emagnani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	fractal_name(t_fractal *fractal, char **argv)
 		fractal->name = "julia";
 		fractal->animate = true;
 		fractal->x_tmp = ft_atof(argv[2]);
-		fractal->y_tmp = ft_atof(argv[2]);
+		fractal->y_tmp = ft_atof(argv[3]);
 		fractal->cx = (ft_atof(argv[2]) - 0);
 		fractal->cy = (ft_atof(argv[3]) - 0);
 	}
@@ -58,14 +58,19 @@ int	main(int argc, char **argv)
 	if (argc < 2 || !parsing(argc, argv))
 		write_error_and_exit();
 	fractal = malloc(sizeof(t_fractal));
+	if (!fractal)
+		return (1);
 	init_fractal(fractal);
 	fractal_name(fractal, argv);
 	init_mlx(fractal);
+	if (!fractal->mlx)
+		return (1);
 	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
 	mlx_loop_hook(fractal->mlx, loop_hook, fractal);
 	mlx_hook(fractal->window, 17, 0, mouse_hook, fractal);
 	mlx_hook(fractal->window, 2, 1L << 0, key_press, fractal);
 	mlx_hook(fractal->window, 3, 1L << 1, key_release, fractal);
+	mlx_hook(fractal->window, 17, 1L << 17, exit_fractal, fractal);
 	start_fractal(fractal, fractal->name);
-	mlx_loop(fractal);
+	mlx_loop(fractal->mlx);
 }

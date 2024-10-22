@@ -48,7 +48,10 @@
 .tmp_versions/
 modules.order
 Module.symvers
+
+# others
 Mkfile.old
 dkms.conf
-mlx/
+# mlx/
 .DS_Store
+.vscode

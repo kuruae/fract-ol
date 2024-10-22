@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emagnani <emagnani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:44:37 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/22 01:53:51 by enzo             ###   ########.fr       */
+/*   Updated: 2024/10/20 10:34:09 by emagnani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 #  define RIGHT 65363
 #  define DOWN 65364
 #  define ESC 65307
-#  define R 27
+#  define R 114
 #  define Q 113
 #  define W 119
 # endif
@@ -69,12 +69,12 @@ typedef struct s_fractal
 
 bool	parsing(int argc, char **argv);
 void	fractal(t_fractal *fractal);
-void	init_mlx(t_fractal *fractal);
-void	init_fractal(t_fractal *fractal);
 bool	is_float_or_int(char *str);
-void	exit_fractal(t_fractal *fractal);
+int		init_mlx(t_fractal *fractal);
+int		exit_fractal(t_fractal *fractal);
 int		key_hook(int key, t_fractal *fractal);
 int		mouse_hook(int key, int x, int y, t_fractal *fractal);
+void	init_fractal(t_fractal *fractal);
 void	zoom(t_fractal *fractal, int x, int y, int zoom);
 void	write_error_and_exit(void);
 void	start_fractal(t_fractal *fractal_void, char *name);

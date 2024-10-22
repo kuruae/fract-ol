@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emagnani <emagnani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:40:13 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/21 23:19:49 by enzo             ###   ########.fr       */
+/*   Updated: 2024/10/19 18:49:19 by emagnani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,14 @@ void	init_fractal(t_fractal *fractal)
 	fractal->max_iterations = 80;
 }
 
-void	init_mlx(t_fractal *fractal)
+int	init_mlx(t_fractal *fractal)
 {
 	fractal->mlx = mlx_init();
+	if (fractal->mlx == NULL)
+		return (-1);
 	fractal->window = mlx_new_window(fractal->mlx, SIZE_1, SIZE_2, "fract-ol");
 	fractal->image = mlx_new_image(fractal->mlx, SIZE_1, SIZE_2);
 	fractal->img_ptr = mlx_get_data_addr(fractal->image,
 			&fractal->bits_per_pixel, &fractal->size_line, &fractal->endian);
+	return (0);
 }

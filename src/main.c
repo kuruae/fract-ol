@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emagnani <emagnani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 15:57:38 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/21 23:19:54 by enzo             ###   ########.fr       */
+/*   Updated: 2024/10/19 18:52:16 by emagnani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	main(int argc, char **argv)
 	if (argc < 2 || !parsing(argc, argv))
 		write_error_and_exit();
 	fractal = malloc(sizeof(t_fractal));
+	if (!fractal)
+		return (1);
 	init_fractal(fractal);
 	if (ft_strncmp(argv[1], "julia", 6) == 0)
 	{
@@ -40,9 +42,11 @@ int	main(int argc, char **argv)
 	else
 		fractal->name = "mandel";
 	init_mlx(fractal);
-	mlx_hook(fractal->window, 17, 0, mouse_hook, fractal);
+	if (!fractal->mlx)
+		return (1);
 	mlx_key_hook(fractal->window, key_hook, fractal);
 	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
+	mlx_hook(fractal->window, 17, 1L << 17, exit_fractal, fractal);
 	start_fractal(fractal, fractal->name);
-	mlx_loop(fractal);
+	mlx_loop(fractal->mlx);
 }

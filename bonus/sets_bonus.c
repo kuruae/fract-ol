@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sets_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emagnani <emagnani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:25:07 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/21 23:13:07 by enzo             ###   ########.fr       */
+/*   Updated: 2024/10/21 15:38:35 by emagnani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,28 @@ void	phoenix(t_fractal *fractal)
 	while (++i < fractal->max_iterations)
 	{
 		phoenix_calc(fractal, &old_x, &old_y);
-		if (fractal->zx * fractal->zx + fractal->zy * fractal->zy >= 4.0)
+		if (fractal->zx * fractal->zx + fractal->zy * fractal->zy >= 16.0)
 			break ;
 	}
 	if (i == fractal->max_iterations)
 		show_pixel(fractal, fractal->x, fractal->y, 0x000000);
 	else
 		show_pixel(fractal, fractal->x, fractal->y, get_color(fractal, i));
+}
+
+int	get_phx_color(t_fractal *f, int iterations)
+{
+	double	t;
+	int		r;
+	int		g;
+	int		b;
+
+	if (iterations == f->max_iterations)
+		return (0x000000);
+	t = (double)iterations / f->max_iterations;
+	t = sqrt(t);
+	r = (int)(9 * (1 - t) * t * t * 255);
+	g = (int)(15 * (1 - t) * (1 - t) * t * 255);
+	b = (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * 255);
+	return ((r << 16) | (g << 8) | b);
 }

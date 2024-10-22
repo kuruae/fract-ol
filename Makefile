@@ -8,7 +8,7 @@ RESET = \033[0m
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-LIBFT_PATH = ../../circle1/libft
+LIBFT_PATH = libft
 MLX_PATH = mlx
 
 ######### DIRECTORIES ########
@@ -22,24 +22,39 @@ INCLUDE_DIRS = -I$(INCLUDE_DIR) -I$(LIBFT_PATH)/includes -I$(MLX_PATH)
 
 ######### FILES ########
 
-SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
+SRC_FILES = $(SRC_DIR)/fractal.c \
+			$(SRC_DIR)/hooks.c \
+			$(SRC_DIR)/init.c \
+			$(SRC_DIR)/main.c \
+			$(SRC_DIR)/parsing.c \
+			$(SRC_DIR)/sets.c \
+			$(SRC_DIR)/utils.c
+
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
-BONUS_SRC_FILES = $(wildcard $(BONUS_DIR)/*.c)
+BONUS_SRC_FILES = $(BONUS_DIR)/anim_bonus.c \
+                  $(BONUS_DIR)/fractal_bonus.c \
+                  $(BONUS_DIR)/hooks_bonus.c \
+                  $(BONUS_DIR)/init_bonus.c \
+                  $(BONUS_DIR)/main_bonus.c \
+                  $(BONUS_DIR)/parsing_bonus.c \
+                  $(BONUS_DIR)/sets_bonus.c \
+                  $(BONUS_DIR)/utils_bonus.c
+
 BONUS_OBJ_FILES = $(patsubst $(BONUS_DIR)/%.c,$(OBJ_DIR)/%.o,$(BONUS_SRC_FILES))
 
 ######### LIBRARIES ########
 
 LIBFT = $(LIBFT_PATH)/libft.a
+UNAME_S := $(shell uname -s)
 MLX = $(MLX_PATH)/libmlx.a
-
-######### MLX FLAGS ########
+######### MLX FLAGS ########s
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
 	MLX_ARGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 else
-	MLX_ARGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+	MLX_ARGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm
 endif
 
 ######### NAME ########

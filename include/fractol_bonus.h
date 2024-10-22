@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enzo <enzo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emagnani <emagnani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:44:37 by enzo              #+#    #+#             */
-/*   Updated: 2024/09/22 01:18:01 by enzo             ###   ########.fr       */
+/*   Updated: 2024/10/21 15:36:04 by emagnani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,13 @@
 #  define RIGHT 65363
 #  define DOWN 65364
 #  define ESC 65307
-#  define R 27
+#  define R 114
 #  define Q 113
 #  define C 119
+#  define I 105
+#  define L 108
+#  define K 107
+#  define J 106
 # endif
 
 typedef struct s_fractal
@@ -85,10 +89,10 @@ typedef struct s_fractal
 
 bool	parsing(int argc, char **argv);
 void	fractal(t_fractal *fractal);
-void	init_mlx(t_fractal *fractal);
+int		init_mlx(t_fractal *fractal);
 void	init_fractal(t_fractal *fractal);
 bool	is_float_or_int(char *str);
-void	exit_fractal(t_fractal *fractal);
+int		exit_fractal(t_fractal *fractal);
 int		key_hook(int key, t_fractal *fractal);
 int		mouse_hook(int key, int x, int y, t_fractal *fractal);
 void	zoom(t_fractal *fractal, int x, int y, int zoom);
@@ -105,6 +109,7 @@ void	animate_julia(t_fractal *fractal);
 int		key_press(int keycode, t_fractal *fractol);
 int		key_release(int keycode, t_fractal *fractol);
 int		get_color(t_fractal *fractal, int iterations);
+int		get_phx_color(t_fractal *f, int iterations);
 void	update_animation(t_fractal *fractal);
 void	init_animation(t_fractal *fractal);
 void	key_press_speed(int key, t_fractal *fractal);
