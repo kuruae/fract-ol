@@ -9,7 +9,7 @@ A fractal exploration program written in C using the MinilibX library. This proj
   - ✨ Julia set
   - 🐦‍🔥 Phoenix set
   - 🎭 Animated Julia variations
-  - Interactive controls:
+- Interactive controls:
   - 🖱️ Zoom with mouse wheel
   - 🎨 Color palette switching
   - Smooth rendering and color transitions
@@ -31,8 +31,6 @@ make
 - ESC: Exit program
 - C: Change color scheme
 - R: Reset view
-
-### Additional Features
 - Hold A: Runs the animation for animate_julia
 - I/K: Adjust animation speed
 
@@ -49,9 +47,7 @@ The program visualizes mathematical sets in the complex plane:
 
 ## Requirements
 - macOS or Linux
-- MinilibX library
-- Make
-- GCC
+- [MinilibX library](https://github.com/42Paris/minilibx-linux)
 
 ## Installation
 ```bash
@@ -64,3 +60,5 @@ git clone -b linux https://github.com/kuruae/fract-ol
 cd fractol
 make
 ```
+
+- note: the macOS version is not up to date and might have bugs
